@@ -5,13 +5,15 @@ import (
 )
 
 func main() {
-	var a uint
+	var a int
 
 	fmt.Print("Введите число, до которого нужно найти все простые числа: ")
 	fmt.Scanln(&a)
 
 	fmt.Println("Найдены простые числа:")
-	if a == 1 {
+	if a < 0 {
+		fmt.Println("Работает только для положительных чисел")
+	} else if a == 1 {
 		fmt.Println([1]int{1})
 	} else if a == 2 {
 		fmt.Println([2]int{1, 2})
@@ -39,7 +41,7 @@ func findSimpleNumbers(sequence []int) []int {
 	return simpleNumbers
 }
 
-func generateSequanceNumbers(limit uint) []int {
+func generateSequanceNumbers(limit int) []int {
 	var result []int
 	for i := 4; i <= int(limit); i++ {
 		result = append(result, i)
