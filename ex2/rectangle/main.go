@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("Введите высоту:")
 	fmt.Scanln(&height)
 
-	fmt.Printf("Ширина прямоугольника: %d\n", width*height)
+	fmt.Printf("Площадь прямоугольника: %d\n", width*height)
 }
