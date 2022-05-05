@@ -13,11 +13,8 @@ func main() {
 }
 
 func fibonachiNum(num int) int {
-	if num == 0 {
-		return 0
-	}
-	if num == 1 {
-		return 1
+	if num <= 1 {
+		return num
 	}
 	return fibonachiNum(num-1) + fibonachiNum(num-2)
 }
