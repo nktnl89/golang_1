@@ -21,7 +21,7 @@ func main() {
 	fmt.Printf("Результат выполнения операции: %.2f\n", processOperation(a, b, op))
 }
 
-func exponent(a, b float32) float32 {
+func exponentiate(a, b float32) float32 {
 	var exp float32
 
 	for i := 1; i < int(b); i++ {
@@ -58,7 +58,7 @@ func processOperation(a, b float32, op string) float32 {
 			fmt.Println("Степень должна быть больше 0")
 			os.Exit(1)
 		}
-		res = exponent(a, b)
+		res = exponentiate(a, b)
 	case "!":
 		res = factorial(a)
 	default:
