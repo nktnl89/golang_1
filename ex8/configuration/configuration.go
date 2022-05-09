@@ -3,6 +3,7 @@ package configuration
 import (
 	"flag"
 	"fmt"
+	"net/url"
 	"os"
 
 	"github.com/kelseyhightower/envconfig"
@@ -38,9 +39,26 @@ func InitiateEnvironment() {
 	os.Setenv("some_app_key", "testkey")
 }
 
+func validateUrl(u string) error {
+	_, err := url.Parse(u)
+	return err
+}
+
 func PopulateByFlag() Conf {
 
 	flag.Parse()
+
+	if validateUrl(*sentryUrl) != nil {
+		fmt.Println("Sentry url isn't valid")
+	}
+
+	if validateUrl(*jaegerUrl) != nil {
+		fmt.Println("Jaeger url isn't valid")
+	}
+
+	if validateUrl(*dbUrl) != nil {
+		fmt.Println("Db url isn't valid")
+	}
 
 	return Conf{
 		Port:        *port,
