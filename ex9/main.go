@@ -20,9 +20,6 @@ func main() {
 	fmt.Println("Загрузка конфигурации из .json:")
 	fmt.Println(configuration.PopulateFromJson("conf.json"))
 
-	// fmt.Println("Загрузка конфигурации из .csv:")
-	// fmt.Println(configuration.PopulateFromCsv("conf.csv"))
-
 	fmt.Println("Загрузка конфигурации из .yaml:")
 	fmt.Println(configuration.PopulateFromJson("conf-stage.yaml"))
 }

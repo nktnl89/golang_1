@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"gopkg.in/yaml.v3"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"net/url"
@@ -24,13 +24,13 @@ var (
 )
 
 type Conf struct {
-	Port        int    `yaml:"port" json:"port"`
-	DbUrl       string `yaml:"db_url" json:"db_url"`
-	JaegerUrl   string `yaml:"jaeger_url" json:"jaeger_url"`
-	SentryUrl   string `yaml:"sentry_url" json:"sentry_url"`
-	KafkaBroker string `yaml:"kafka_broker" json:"kafka_broker"`
-	SomeAppId   string `yaml:"some_app_id" json:"some_app_id"`
-	SomeAppKey  string `yaml:"some_app_key" json:"some_app_key"`
+	Port        int    `yaml:"port" json:"port" envconfig:"port"`
+	DbUrl       string `yaml:"db_url" json:"db_url" envconfig:"db_url"`
+	JaegerUrl   string `yaml:"jaeger_url" json:"jaeger_url" envconfig:"jaeger_url"`
+	SentryUrl   string `yaml:"sentry_url" json:"sentry_url" envconfig:"sentry_url"`
+	KafkaBroker string `yaml:"kafka_broker" json:"kafka_broker" envconfig:"kafka_broker"`
+	SomeAppId   string `yaml:"some_app_id" json:"some_app_id" envconfig:"some_app_id"`
+	SomeAppKey  string `yaml:"some_app_key" json:"some_app_key" envconfig:"some_app_key"`
 }
 
 func InitiateEnvironment() {
