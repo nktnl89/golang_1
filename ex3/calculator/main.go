@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang_1/ex3/calculator/operation"
 	"os"
 )
 
@@ -19,23 +20,6 @@ func main() {
 	fmt.Scanln(&op)
 
 	fmt.Printf("Результат выполнения операции: %.2f\n", processOperation(a, b, op))
-}
-
-func exponentiate(a, b float32) float32 {
-	var exp float32
-
-	for i := 1; i < int(b); i++ {
-		exp = exp + a*a
-	}
-	return exp
-}
-
-func factorial(a float32) float32 {
-	var fact = 1
-	for i := 2; i <= int(a); i++ {
-		fact = fact * i
-	}
-	return float32(fact)
 }
 
 func processOperation(a, b float32, op string) float32 {
@@ -58,9 +42,9 @@ func processOperation(a, b float32, op string) float32 {
 			fmt.Println("Степень должна быть больше 0")
 			os.Exit(1)
 		}
-		res = exponentiate(a, b)
+		res = operation.Exponentiate(a, b)
 	case "!":
-		res = factorial(a)
+		res = operation.Factorial(a)
 	default:
 		fmt.Println("Операция выбрана неверно.")
 		os.Exit(1)
