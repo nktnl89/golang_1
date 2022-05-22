@@ -30,7 +30,7 @@ func TestExponentiate(t *testing.T) {
 	}
 
 	for _, cse := range testCases {
-		cse = cse
+		cse := cse
 		t.Run(cse.name, func(t *testing.T) {
 			res := Exponentiate(cse.firstValue, cse.secondValue)
 
