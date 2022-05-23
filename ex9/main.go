@@ -21,5 +21,5 @@ func main() {
 	fmt.Println(configuration.PopulateFromJson("conf.json"))
 
 	fmt.Println("Загрузка конфигурации из .yaml:")
-	fmt.Println(configuration.PopulateFromJson("conf-stage.yaml"))
+	fmt.Println(configuration.PopulateFromYaml("conf-stage.yaml"))
 }

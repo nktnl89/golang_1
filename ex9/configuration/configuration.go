@@ -43,21 +43,17 @@ func InitiateEnvironment() {
 	os.Setenv("some_app_key", "testkey")
 }
 
-func validateUrl(u string) error {
-	_, err := url.Parse(u)
-	return err
-}
-
 func configUrlsValidate(conf *Conf) {
-	if validateUrl(conf.SentryUrl) != nil {
+	_, err := url.Parse(conf.SentryUrl)
+	if err != nil {
 		fmt.Println("Sentry url isn't valid")
 	}
-
-	if validateUrl(conf.JaegerUrl) != nil {
+	_, err = url.Parse(conf.JaegerUrl)
+	if err != nil {
 		fmt.Println("Jaeger url isn't valid")
 	}
-
-	if validateUrl(conf.DbUrl) != nil {
+	_, err = url.Parse(conf.DbUrl)
+	if err != nil {
 		fmt.Println("Db url isn't valid")
 	}
 
