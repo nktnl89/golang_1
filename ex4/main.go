@@ -3,26 +3,25 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"golang_1/ex4/sorting"
 	"os"
 	"strconv"
 )
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	var numbers = make([]int, 0, 10)
+	var numbers = []int{}
 
 	for scanner.Scan() {
-		newNumber, _ := strconv.Atoi(scanner.Text())
+		a := scanner.Text()
+		if a == "stop" {
+			break
+		}
+		newNumber, _ := strconv.Atoi(a)
 		numbers = append(numbers, newNumber)
 	}
 
-	for i := 1; i < len(numbers); i++ {
-		x := numbers[i]
-		j := i
-		for ; j >= 1 && numbers[j-1] > x; j-- {
-			numbers[j] = numbers[j-1]
-		}
-		numbers[j] = x
-	}
+	sorting.SortInt(&numbers)
+
 	fmt.Println("Результат: ", numbers)
 }
