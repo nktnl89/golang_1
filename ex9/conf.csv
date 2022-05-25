@@ -1,0 +1,2 @@
+port,db_url,jaeger_url,sentry_url,kafka_broker,some_app_id,some_app_key
+8080,"postgres://db-user:db-password@petstore-db:5432/petstore?sslmode=disable","http://jaeger:16686","http://sentry:9000","kafka:9092","testid","testkey"
